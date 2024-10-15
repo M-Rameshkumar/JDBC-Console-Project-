@@ -20,8 +20,9 @@ public class JDBCproject {
 
 		// call creating function - so that it creates table
 		Dao d=new Dao();
-		//d.creating();
-		d.inserting(0, null, 0);
+//		d.creating();
+//		d.inserting(1,"ram", 25000); // this will insert first employee
+		d.inserting(2, "ramesh", 0);  // this will insert second employee
 		
 		
 	}
@@ -60,9 +61,8 @@ class  Dao{
 				
 				 s=c.createStatement();
 				
-				s.executeUpdate("CREATE TABLE EMPLOYEE (ID INT PRIMARY KEY, ENAME VARCHAR(50),ESALARY BIGINT) "); 
-				s.close();
-				c.close();
+				s.executeUpdate("CREATE TABLE EMPLOYEE (ID INT PRIMARY KEY AUTO_INCREMENT , ENAME VARCHAR(50),ESALARY BIGINT) "); 
+				System.out.println("sucessfully table was created");
 				
 				} 
 			catch (ClassNotFoundException e) { 
@@ -126,6 +126,7 @@ class  Dao{
               ps.setInt(3, esalary); // 3rd ?
               
               ps.executeUpdate();
+              System.out.println("sucessfully added!!");
               
 			
 			
